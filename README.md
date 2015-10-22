@@ -1,9 +1,28 @@
-# AirBnB Ruby Accessment
-This is a question repo for testing your server understanding for Ruby server.
+# AirBnB Ruby Assessment
+This is a question repo for testing your server understanding for Ruby server. You'll be building an AirBnB backend server application.
+
 Included is a Sinatra Web Server version 0.0.6 based on https://github.com/hollowaykeanho/sinatra-web-server. 
 
+# Purpose
+The assessment goal is to test your understanding about ActiveRecord, ActiveRecord Relationship and Association, RESTFUL standards and MVC through the use of Sinatra framework, structured to mimic Rails.
+
 # Objectives
-Your primary objective is to develop a ***working*** AirBnB web app without heavy emphasis on frontend. To acheive this, you'll need to present your app capable of doing these models:
+Your primary objective is to develop a **working** AirBnB backend web app without heavy emphasis on the frontend. However, user experience (UX) is still considered in the assessment. To achieve an acceptable level, you should deliver:
+
+> Tip: 
+> Spend more time on the backend. Leave the frontend works as simple as possible.
+
+# 1) A Wireframe of your App UX flow
+This helps your mentor to navigate and test your app. It will be served as a map for your app.
+
+# 2) Your database design
+This helps to structure your database. It helps your mentor to verify and work with your data structure.
+
+# 3) Your Working App
+> By **Working** definition:
+> Usable, configurable and all expected functions are working.
+
+The App should be doing the following:
 
 ## User
 1. User is able to create an account (sign up)
@@ -23,15 +42,24 @@ Your primary objective is to develop a ***working*** AirBnB web app without heav
 4. User is able to DELETE comment for a property
 
 ## Booking
-1. User is able to CREATE booking for a property
+1. User is able to CREATE booking for a property, **BUT not his/her own**
 2. User is able to VIEW his/her booking
-3. User is able to UPDATE his/her booking
-4. User is able to DELETE his/her booking
+3. User is able to UPDATE his/her own booking **only**
+4. User is able to DELETE his/her own booking **only**
 
-# To Start
-1. Fork this repo and git clone it to your repo.
-2. Begin your test.
-3. Test should be 3 hours time.
-4. To submit, push your commits into your repo and submit the link to your tester.
+# Time Length
+| State  | Period |
+| :------------ | -----:|
+| Awesome       |  2 hours |
+| Normal      |  3 hours |
+| Maximum       |  5 hours  |
+
+# Procedure
+1. Fork this repo and git clone it to your local machine.
+2. Have your mentor ready to time you.
+3. Begin your code.
+4. To submit, push your commits into your forked repo.
+5. Post the link to your mentor and inform him/her your completion.
+6. Your mentor will walk you through your codes.
 
 # Good Luck!

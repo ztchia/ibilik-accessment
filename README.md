@@ -12,36 +12,36 @@ Your primary objective is to develop a **working** AirBnB backend web app withou
 > Tip: 
 > Spend more time on the backend. Leave the frontend works as simple as possible.
 
-# 1) A Wireframe of your App UX flow
+## 1) A Wireframe of your App UX flow
 This helps your mentor to navigate and test your app. It will be served as a map for your app.
 
-# 2) Your database design
+## 2) Your database design
 This helps to structure your database. It helps your mentor to verify and work with your data structure.
 
-# 3) Your Working App
+## 3) Your Working App
 > By **Working** definition:
 > Usable, configurable and all expected functions are working.
 
 The App should be doing the following:
 
-## User
+### User
 1. User is able to create an account (sign up)
 2. User is able to log into an account (sign in)
 3. User is able to log out from an account (sign out)
 
-## Properties
+### Properties
 1. User is able to CREATE properties
 2. User is able to VIEW properties
 3. User is able to UPDATE properties
 4. User is able to DELETE properties
 
-## Comments
+### Comments
 1. User is able to CREATE comment for a property
 2. User is able to VIEW comment for a property
 3. User is able to UPDATE comment for a property
 4. User is able to DELETE comment for a property
 
-## Booking
+### Booking
 1. User is able to CREATE booking for a property, **BUT not his/her own**
 2. User is able to VIEW his/her booking
 3. User is able to UPDATE his/her own booking **only**

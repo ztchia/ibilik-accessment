@@ -1,5 +1,5 @@
 # AirBnB Ruby Assessment
-This is a question repo for testing your server understanding for Ruby server. You'll be building an AirBnB backend server application.
+This is a question repo for testing your server understanding for Ruby server. You'll be building an iBilik backend server application.
 
 Included is a Sinatra Web Server version 0.0.6 based on https://github.com/hollowaykeanho/sinatra-web-server. 
 
@@ -7,7 +7,7 @@ Included is a Sinatra Web Server version 0.0.6 based on https://github.com/hollo
 The assessment goal is to test your understanding about ActiveRecord, ActiveRecord Relationship and Association, RESTFUL standards and MVC through the use of Sinatra framework, structured to mimic Rails.
 
 # Objectives
-Your primary objective is to develop a **working** AirBnB backend web app without heavy emphasis on the frontend. However, user experience (UX) is still considered in the assessment. To achieve an acceptable level, you should deliver:
+Your primary objective is to develop a **working** iBilik backend web app without heavy emphasis on the frontend. However, user experience (UX) is still considered in the assessment. To achieve an acceptable level, you should deliver:
 
 > Tip: 
 > Spend more time on the backend. Leave the frontend works as simple as possible.

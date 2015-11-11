@@ -1,4 +1,4 @@
-# AirBnB Ruby Assessment
+# iBilik Ruby Assessment
 This is a question repo for testing your server understanding for Ruby server. You'll be building an iBilik backend server application.
 
 Included is a Sinatra Web Server version 0.0.6 based on https://github.com/hollowaykeanho/sinatra-web-server. You can obtain an updated version from the given link.

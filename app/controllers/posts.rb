@@ -24,16 +24,16 @@ get '/posts/all' do
 
 end
 
-# View post profile
+# # View post profile
 
-get '/posts/:id' do
+# get '/posts/:id' do
 
 	
-	@user = User.all
-	@posts = Post.find(params[:id])
-	@comments = Comment.where(post_id: params[:post_id])
-	erb :'post/show'
-end
+# 	@user = User.all
+# 	@posts = Post.find(params[:id])
+	
+# 	erb :'post/show'
+# end
 
 # # Update post
 
@@ -60,6 +60,35 @@ end
 delete '/posts/:id' do
 	post = Post.find(params[:id])
 	post.destroy
-	erb :'static/index'
-	# redirect "/"
+	# erb :'static/index'
+	redirect "/"
+end
+
+
+get '/posts/:id' do
+	@posts = Post.find(params[:id])
+	@comment = Comment.where(post_id: params[:id])
+	erb :'post/show'
+end
+
+post '/posts/:id/comment' do
+
+	@comment = Comment.create(input: params[:input], user_id: session[:user_id], post_id: params[:id])
+	redirect "/posts/#{params[:id]}"
+end
+
+patch '/posts/:id/comment/:comment_id' do
+	post = Post.find(params[:id])
+	comment = Comment.find(params[:comment_id])
+	comment.update(input: params[:input])
+	redirect "/posts/#{post.id}"
+end
+
+delete '/posts/:id/comment/:comment_id' do
+	post = Post.find(params[:id])
+	comment = Comment.find(params[:comment_id])
+	comment.destroy
+
+	redirect "/posts/#{post.id}"
+
 end

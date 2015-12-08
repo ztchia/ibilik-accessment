@@ -1,17 +1,17 @@
 
 #comment create yo!!!
-post '/posts/:id/comments' do	
+# post '/posts/:id/comments' do	
 	
-	@post = Post.find(params[:id])
+# 	@post = Post.find(params[:id])
 
-	@comments = Comment.create(input: params[:input], post_id: session[:post_id], 
-		user_id: session[:user_id] )
+# 	@comments = Comment.create(input: params[:input], post_id: session[:post_id], 
+# 		user_id: session[:user_id] )
 
-	redirect "/posts/#{@post.id}"
+# 	redirect "/posts/#{@post.id}"
 
-end
+# end
 
-patch '/posts/:id/comments/edit' do
+# patch '/posts/:id/comments/edit' do
 
-	Comment.update(input: params[:input])
-end
+# 	Comment.update(input: params[:input])
+# end

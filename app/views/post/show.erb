@@ -1,11 +1,11 @@
 <h1><%= @posts.title %> by  <%= @posts.user.name %> </h1><br>
 
 
-Location: <%= @posts.location %><br>
-Description: <%= @posts.description %><br>
-Extras: <%= @posts.extras %><br>
-Preference: <%= @posts.preference %><br>
-Monthly Rental: <%= @posts.monthly_rental %><br>
+	Location: <%= @posts.location %><br>
+	Description: <%= @posts.description %><br>
+	Extras: <%= @posts.extras %><br>
+	Preference: <%= @posts.preference %><br>
+	Monthly Rental: <%= @posts.monthly_rental %><br>
 
 
 <% if current_user.id == @posts.user_id %> 
@@ -18,32 +18,33 @@ Monthly Rental: <%= @posts.monthly_rental %><br>
 	<input type="submit" value="Delete">
 </form>
 
-
-<% @comments.each_with_index do |comment, index| %>
-	<% index += 1 %>
-	<%= index %>) <%= comment.input %>  by: <%= comment.user.name %><br><br>
-	<%  end %>
-
-<form action="/posts/<%= @posts.id %>/comments" method="POST">
-
+<form action="/posts/<%= @posts.id %>/comment" method="POST">
 	<label>Comment: </label>
-
-	<textarea name="input" value="input"> </textarea><br>
-
-	<input type = "submit" value="Reply">
-	
+	<textarea type="text" name="input"></textarea><br>
+	<input type="submit" value="Submit Comment">
 </form>
+
+	<% @comment.each_with_index do |comment,index| %>
+	<%= index + 1%>) <%= comment.input %> (by <%= comment.user.name %>)<br><br>
+	
+	<% if current_user.id == comment.user_id %>
+		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<label>Edit Comment: </label>
+			<input type="text" name="input" placeholder="<%= comment.input%>"><br>
+			<input type="submit" value="Update Answer">
+		</form>
+
+		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete">
+		</form>
+	<% end %>
+<% end %>
 
 <% else %>
 
-
-	<% @comments.each_with_index do |comment, index| %>
-	<% index += 1 %>
-	<%= index %>) <%= comment.input %>  by: <%= comment.user.name %><br><br>
-	<%  end %>
-
-
-	<form action="/posts/<%= @posts.id %>/comments" method="POST">
+	<form action="/posts/<%= @posts.id %>/comment" method="POST">
 		<label>Comment: </label>
 		<textarea name="input" value= "input"></textarea><br>
 
@@ -51,4 +52,19 @@ Monthly Rental: <%= @posts.monthly_rental %><br>
 		
 	</form>
 
+	<% @comment.each_with_index do |comment,index| %>
+	<%= index + 1%>) <%= comment.input %> (by <%= comment.user.name %>)<br><br>
+	<% if current_user.id == comment.user_id %>
+		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
+			<input type="hidden" name="_method" value="patch">
+			<label>Edit Comment: </label>
+			<input type="text" name="input" placeholder="<%= comment.input%>"><br>
+			<input type="submit" value="Edit comment">
+		</form>
+		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete">
+		</form>
+		<% end %>
+	<% end %>
 <% end %>

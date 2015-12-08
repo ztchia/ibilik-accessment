@@ -1,10 +1,10 @@
 <h1> All posting </h1>
 
 <% @posts.each_with_index do |post, index| %>
-	<%= index += 1 %>
-	<%= post.title %>
-	<%= post.description %>
-	<%= post.monthly_rental %>
-	<%= post.user.name %>
+	<b> <%= index += 1 %> </b>
+	<a href = "/posts/<%= post.id%>"><%= post.title %><br> </a>
+	Description: <%= post.description %> <br>
+	Monthly Rental:  <%= post.monthly_rental %><br>
+	<%= post.user.name %><br>
 
 <% end %>

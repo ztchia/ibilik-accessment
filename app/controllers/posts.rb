@@ -64,19 +64,21 @@ delete '/posts/:id' do
 	redirect "/"
 end
 
-
+# Show post
 get '/posts/:id' do
 	@posts = Post.find(params[:id])
-	@comment = Comment.where(post_id: params[:id])
+	@comments = Comment.where(post_id: params[:id])
 	erb :'post/show'
 end
 
+#Create Comment in post
 post '/posts/:id/comment' do
 
 	@comment = Comment.create(input: params[:input], user_id: session[:user_id], post_id: params[:id])
 	redirect "/posts/#{params[:id]}"
 end
 
+# Enable updates of comment
 patch '/posts/:id/comment/:comment_id' do
 	post = Post.find(params[:id])
 	comment = Comment.find(params[:comment_id])
@@ -84,6 +86,7 @@ patch '/posts/:id/comment/:comment_id' do
 	redirect "/posts/#{post.id}"
 end
 
+#Delete comment
 delete '/posts/:id/comment/:comment_id' do
 	post = Post.find(params[:id])
 	comment = Comment.find(params[:comment_id])

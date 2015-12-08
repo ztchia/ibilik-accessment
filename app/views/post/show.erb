@@ -7,38 +7,64 @@
 	Preference: <%= @posts.preference %><br>
 	Monthly Rental: <%= @posts.monthly_rental %><br>
 
+<% if flash[:booked] %>
+	<%= flash[:booked] %>
+<% end %>
+
+<% if current_user.id != @posts.user_id %>
+
+	<% if flash[:success] %>
+		<%= flash[:success] %>
+		<% end %>
+
+<form action="/posts/<%= @posts.id %>/book" method="POST">
+	<input type="submit" value="Book This Room">
+</form>
+
+<% if flash[:cancel] %>
+	<%= flash[:cancel] %>
+	<% end %>
+
+<form action="/posts/<%= @posts.id %>/book" method="POST">
+	<input type="submit" value="Cancel Booking">
+</form>
+
+<% end %>
+
+<!-- The person who posted will be given the option to edit or delete the post -->
 
 <% if current_user.id == @posts.user_id %> 
 
 <a href="/posts/<%= @posts.id %>/edit"><button>Edit post</button></a>
 
 
-<form action="/posts/<%= @posts.id %>" method="post">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete">
-</form>
+	<form action="/posts/<%= @posts.id %>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete">
+	</form>
 
-<form action="/posts/<%= @posts.id %>/comment" method="POST">
-	<label>Comment: </label>
-	<textarea type="text" name="input"></textarea><br>
-	<input type="submit" value="Submit Comment">
-</form>
+	<form action="/posts/<%= @posts.id %>/comment" method="POST">
+		<label>Comment: </label>
+		<textarea type="text" name="input"></textarea><br>
+		<input type="submit" value="Submit Comment">
+	</form>
 
-	<% @comment.each_with_index do |comment,index| %>
+	<% @comments.each_with_index do |comment,index| %>
 	<%= index + 1%>) <%= comment.input %> (by <%= comment.user.name %>)<br><br>
-	
+<!-- Enabled comment poster to edit or delete comments -->
 	<% if current_user.id == comment.user_id %>
 		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
 			<input type="hidden" name="_method" value="patch">
 			<label>Edit Comment: </label>
 			<input type="text" name="input" placeholder="<%= comment.input%>"><br>
-			<input type="submit" value="Update Answer">
+			<input type="submit" value="Edit Comment">
 		</form>
 
 		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Delete">
 		</form>
+
 	<% end %>
 <% end %>
 
@@ -52,8 +78,9 @@
 		
 	</form>
 
-	<% @comment.each_with_index do |comment,index| %>
+	<% @comments.each_with_index do |comment,index| %>
 	<%= index + 1%>) <%= comment.input %> (by <%= comment.user.name %>)<br><br>
+<!-- Enabled comment poster to edit or delete comments -->
 	<% if current_user.id == comment.user_id %>
 		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
 			<input type="hidden" name="_method" value="patch">
@@ -61,10 +88,12 @@
 			<input type="text" name="input" placeholder="<%= comment.input%>"><br>
 			<input type="submit" value="Edit comment">
 		</form>
+
 		<form action="/posts/<%= @posts.id %>/comment/<%= comment.id %>" method="post">
 			<input type="hidden" name="_method" value="delete">
 			<input type="submit" value="Delete">
 		</form>
+
 		<% end %>
 	<% end %>
 <% end %>

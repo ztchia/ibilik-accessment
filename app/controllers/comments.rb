@@ -8,13 +8,10 @@ post '/posts/:id/comments' do
 		user_id: session[:user_id] )
 
 	redirect "/posts/#{@post.id}"
+
 end
 
-#comment not printed!
+patch '/posts/:id/comments/edit' do
 
-# get '/posts/:id' do
-# 	@posts = Post.find(params[:id])
-# 	@comments = Comment.all
-# 	erb :'post/show'
-
-# end
+	Comment.update(input: params[:input])
+end

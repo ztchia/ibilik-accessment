@@ -31,7 +31,7 @@ get '/posts/:id' do
 	
 	@user = User.all
 	@posts = Post.find(params[:id])
-	@comments = Comment.all
+	@comments = Comment.where(post_id: params[:post_id])
 	erb :'post/show'
 end
 

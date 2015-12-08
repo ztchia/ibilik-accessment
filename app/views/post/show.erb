@@ -28,7 +28,7 @@ Monthly Rental: <%= @posts.monthly_rental %><br>
 
 	<label>Comment: </label>
 
-	<textarea name="inputs"> </textarea><br>
+	<textarea name="input" value="input"> </textarea><br>
 
 	<input type = "submit" value="Reply">
 	
@@ -37,7 +37,6 @@ Monthly Rental: <%= @posts.monthly_rental %><br>
 <% else %>
 
 
-	<% byebug %>
 	<% @comments.each_with_index do |comment, index| %>
 	<% index += 1 %>
 	<%= index %>) <%= comment.input %>  by: <%= comment.user.name %><br><br>
@@ -46,7 +45,7 @@ Monthly Rental: <%= @posts.monthly_rental %><br>
 
 	<form action="/posts/<%= @posts.id %>/comments" method="POST">
 		<label>Comment: </label>
-		<textarea name="inputs"></textarea><br>
+		<textarea name="input" value= "input"></textarea><br>
 
 		<input type = "submit" value="Submit">
 		

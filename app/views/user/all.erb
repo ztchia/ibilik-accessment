@@ -1,0 +1,8 @@
+<h1> Below are all the users:</h1><br>
+
+<%@users.each_with_index do |user, index| %>
+	<%= index += 1 %>)
+	<b>Name:</b> <%= user.name %>,
+	<b>Email:</b> <%= user.email %><br><br>
+<% end %>
+

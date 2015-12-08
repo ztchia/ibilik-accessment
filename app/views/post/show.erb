@@ -1,0 +1,55 @@
+<h1><%= @posts.title %> by  <%= @posts.user.name %> </h1><br>
+
+
+Location: <%= @posts.location %><br>
+Description: <%= @posts.description %><br>
+Extras: <%= @posts.extras %><br>
+Preference: <%= @posts.preference %><br>
+Monthly Rental: <%= @posts.monthly_rental %><br>
+
+
+<% if current_user.id == @posts.user_id %> 
+
+<a href="/posts/<%= @posts.id %>/edit"><button>Edit post</button></a>
+
+
+<form action="/posts/<%= @posts.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete">
+</form>
+
+
+<% @comments.each_with_index do |comment, index| %>
+	<% index += 1 %>
+	<%= index %>) <%= comment.input %>  by: <%= comment.user.name %><br><br>
+	<%  end %>
+
+<form action="/posts/<%= @posts.id %>/comments" method="POST">
+
+	<label>Comment: </label>
+
+	<textarea name="inputs"> </textarea><br>
+
+	<input type = "submit" value="Reply">
+	
+</form>
+
+<% else %>
+
+
+	<% byebug %>
+	<% @comments.each_with_index do |comment, index| %>
+	<% index += 1 %>
+	<%= index %>) <%= comment.input %>  by: <%= comment.user.name %><br><br>
+	<%  end %>
+
+
+	<form action="/posts/<%= @posts.id %>/comments" method="POST">
+		<label>Comment: </label>
+		<textarea name="inputs"></textarea><br>
+
+		<input type = "submit" value="Submit">
+		
+	</form>
+
+<% end %>

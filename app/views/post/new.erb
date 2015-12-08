@@ -1,0 +1,36 @@
+<h1> Post Room </h1>
+
+<% if logged_in? %>
+
+<form action= "/posts" method="POST">
+
+	<label> Location: </label>
+<!-- 	Please input the place your room is located. -->
+	<input type="text" name= "location"><br>
+
+	<label> Title: </label>
+<!-- 	Keep it short and simple. -->
+	<input type="text" name = "title"><br>
+
+	<label> Description: </label>
+<!-- 	Put contact, location, preferences and so on here. -->
+	<textarea name = "description"></textarea><br>
+	
+	<label> Extras: </label>
+	<input type= "text" name = "extras"><br>
+
+	<label> Preference: </label>
+	<input type="text" name = "preference"><br>
+
+	<label> Monthly Rental: </label>
+	<input type="integer" name = "monthly_rental"><br>
+
+	<input type="submit" value = "Post!">
+
+</form>
+
+<% else %>
+
+	<a href="/users"><button>Login</button></a>
+
+<% end %>

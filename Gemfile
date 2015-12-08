@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 # Adding Sinatra Drivers
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash', '~> 0.3.0'
 
 # Adding thin gem as advised
 gem 'thin'
@@ -20,6 +21,10 @@ gem 'pg'
 
 # Adding rake for management
 gem 'rake'
+gem 'byebug'
+#For secure
+
+gem 'bcrypt'
 
 # Adding rspec for running unit testing
 gem 'rspec'

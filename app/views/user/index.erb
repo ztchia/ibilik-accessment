@@ -1,0 +1,18 @@
+<h1> Login Page </h1>
+
+<% if flash[:error] %>
+	<%= flash[:error] %>
+<% end %>
+
+<form action="/users/login" method="POST">
+	<label>Email: </label>
+	<input type="email" name="email" ><br>
+	<label>Password: </label>
+	<input type="password" name="password" ><br>
+
+	<% if logged_in? %>
+	<a href="/"><button>Logout</button></a>
+	<% else %>
+	<input type="submit" value="Login">
+	<% end %>
+</form>
